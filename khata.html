@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .h1{
+                margin: auto;
+                color: white;
+                width: 50%;
+                text-align: center;
+            }
+
+            body{
+                background-color: red;
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                margin: auto;
+                width:50%;
+                height: 600px;
+                margin-top: auto;
+                padding-top: 100px;
+            }
+            #pr{
+                background-color:skyblue;
+                display: flex;
+                flex-wrap: wrap;
+                width: 80%;
+                margin: 100px auto;
+                justify-content: space-evenly;
+                padding-bottom: 30px;
+                
+            }
+
+            #fo{
+                background-color:white;
+                margin-top: 40px;
+                width: 400px;
+                color:black;
+                padding-left: 20px;
+            }
+
+            input{
+                margin-top: 20px;
+            }
+            button{
+                
+                width: auto;
+                margin: 30px auto;
+            }
+            #form{
+                background-color: whitesmoke;
+                width: 30%;
+                height: 400px;
+                margin: auto;
+                margin-top: 100px;
+            }
+            #ol{
+                display: flex;
+                justify-content: space-evenly;
+                width:60%
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="h1"><b>KHATA BOOK</b></h1>
+        <div id="form">
+            <form>
+                <input type="text" id="n" placeholder="Person Name">
+                <input type="text" id="a" placeholder="Amount">
+                <input type="text" id="p" placeholder="mobile no">
+                <input type="text" id="e" placeholder="email id">
+                <button type="button" onclick="create()">submit</button>
+            </form>
+        </div>
+        <div id="pr">
+
+        </div>
+    <script>
+        function create(){
+            var div=document.createElement('div')
+            h1=document.createElement('h1')
+                       
+        
+            h1.innerHTML=document.getElementById('n').value
+            div.id='fo'
+            h2=document.createElement('h2')
+            
+            h2.innerHTML=document.getElementById('a').value
+            
+            h3=document.createElement('h2')
+            h3.innerHTML=document.getElementById('p').value
+            h4=document.createElement('h2')
+            h4.innerHTML=document.getElementById('e').value
+            var div2=document.createElement('div')
+            div2.id='ol'
+            plus=document.createElement('img')
+            plus.src="https://img.icons8.com/ultraviolet/40/000000/plus.png"
+            plus.setAttribute('onclick','add(this)')
+
+            div2.append(plus)
+            minus=document.createElement('img')
+            minus.src="https://img.icons8.com/ultraviolet/40/000000/minus.png"
+            minus.setAttribute('onclick','sub(this)')
+            div2.append(minus)
+            div.append(h1)
+            div.append(h2)
+            div.append(h3)
+            div.append(h4)
+            div.append(div2)
+            document.getElementById('pr').appendChild(div)
+        }
+        function add(b){
+            var ini=document.createElement('input')
+            ini.type='text'
+            var sub=document.createElement('button')
+            sub.setAttribute('onclick','ad(this)')
+            sub.innerHTML='ADD'
+            sub.style.paddingLeft='20px'
+            var div=b.parentNode.parentNode
+            div.append(ini)
+            div.append(sub)
+        }
+        function sub(b){
+            var ini=document.createElement('input')
+            ini.type='text'
+            var sub=document.createElement('button')
+            sub.setAttribute('onclick','su(this)')
+            sub.innerHTML='Minus'
+            sub.style.paddingLeft='20px'
+            var div=b.parentNode.parentNode
+            div.append(ini)
+            div.append(sub)
+        }
+        function ad(a){
+            var val=a.parentNode.childNodes[1].innerHTML
+            var val2=a.parentNode.childNodes[5].value
+            val=parseInt(val)
+            val2=parseInt(val2)
+            a.parentNode.childNodes[1].innerHTML=val+val2
+            a.parentNode.removeChild(a.parentNode.childNodes[5])
+            a.parentNode.removeChild(a.parentNode.childNodes[5])
+        }
+        function su(a){
+            var val=a.parentNode.childNodes[1].innerHTML
+            var val2=a.parentNode.childNodes[5].value
+            val=parseInt(val)
+            val2=parseInt(val2)
+            if (val-val2==0){
+                var w=a.parentNode
+                a.parentNode.parentNode.removeChild(w)
+            }
+            else{
+                a.parentNode.childNodes[1].innerHTML=val-val2
+                a.parentNode.removeChild(a.parentNode.childNodes[5])
+                a.parentNode.removeChild(a.parentNode.childNodes[5])
+            }
+        }
+
+    </script>
+
+    </body>
+</html>
